@@ -10,27 +10,39 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/styles.css">
     <link rel="stylesheet" href="./css/icon-font.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <title>Portfolio</title>
 </head>
 
 <body>
-
-    <section class="navigation">
-        <img class="my-icon" src="./Assets/Temp Icon by raj.png" alt="icon">
+    <div class="preload">
+      <img src="./Assets/preloader.gif" alt="preloader" srcset="">
+    </div>
+    
+    <section id="nav-section" class="navigation ">
+        <img  id ="nav-image" class="my-icon " src="./Assets/Temp Icon by raj.png" alt="icon">
         <div class="nav-container">
-            <a href="#"><h2 class="nav-links">Skills</h2></a>
-            <a href="#"><h2 class="nav-links">Projects</h2></a>
-            <a href="#"><h2 class="nav-links hire-button">Hire Me!</h2></a>
+            <a style="align-self: stretch;" href="#Skills"><h2 class="nav-links ">Skills</h2></a>
+            <a style="align-self: stretch;" href="#Project"><h2 class="nav-links ">Projects</h2></a>
+            <a  href="#CTA"><h2 class="nav-links hire-button">Hire Me!</h2></a>
         </div>
+        <a href="javascript:void(0);"  class="Sandwitch-Icon" onclick="myFunction()">
+            <i  id="toggle-icon" class="fa fa-bars"></i>
+        </a>
+    </section>
+    <section id="responsive-navbar" class="responsive-nav navigation-sticky">
+        <a style="align-self: stretch;" href="#Skills"><h2 class="nav-links "onclick="myFunction()">Skills</h2></a>
+        <a style="align-self: stretch;" href="#Project"><h2 class="nav-links nav-links-project"onclick="myFunction()">Projects</h2></a>
+        <a  href="#CTA"><h2 class="nav-links hire-button"onclick="myFunction()">Hire Me!</h2></a>
     </section>
 
     <section class="Main-content">
         <div class="Main-content__left">
             <div class="Main-content-text">
-                <h1 class="text-anime">Hello, my</h1>
-                <h1 class="text-anime">name's<span class="Main-content--name front-space">Mohan</span></h1>
-                <h1 class="text-anime">I'm a Web Developer</h1>
+                <h1 class="Main-text-anime ">Hello, my</h1>
+                <h1 class="Main-text-anime ">name's<span class="Main-content--name front-space">Mohan</span></h1>
+                <h1 class="Main-text-anime " id="way-about">I'm a Web Developer</h1>
                 <h1 class="hide" id="first">and Designer.</h1>
             </div>
         </div>
@@ -60,10 +72,10 @@
         </div>
     </section>
 
-    <section class="Skills">
+    <section class="Skills" id="Skills">
         <div class="Skills-container">
             <h1 class="Skills-heading"><span class="Main-content--name skills-title">Skills</span></h1>
-            <div class="Skills-main-container">
+            <div class="Skills-main-container Skills-main-container-adjust">
                 <div class="Skill--Set">
                     <div class="Skill-line"></div>
                     <div class="Skill-number"><p>1</p></div>
@@ -133,39 +145,39 @@
             </div>
         </div>
     </section>
-    <section class="Project">
+    <section class="Project" id="Project">
         <div class="Project-container">
             <h1 class="Project-title"><span class="Main-content--name">My Projects</span></h1>
             <div class="Project-Tiles">
-                <div class="Project-content">
+                <a class="Project-content" href="https://tours-outdoors.netlify.app/">
                     <div class="content-image-holder">
                         <img class="content-image" src="./Assets/Natours-screen.png" alt="natours-image">
                     </div>
                     <div class="content-box">
                         <img  class ="content-box-icon" src="./Assets/Natours.png" alt="small-icon">
-                        <p class="content-box-text">Natours</p>
+                        <p class="content-box-text Project-natours">Natours</p>
                         <div class="Project-icon-holder">
                             <svg class="Project-icon" style="fill: rgb(221, 108, 202);">
                                 <use xlink:href = "./css/sprite.svg#icon-sass"></use>
                             </svg>
                         </div>
                     </div>
-                </div>
-                <div class="Project-content">
+                </a>
+                <a class="Project-content" href="https://trillos.netlify.app/">
                     <div class="content-image-holder">
                         <img class="content-image" src="./Assets/Trillos screen.png" alt="natours-image">
                     </div>
                     <div class="content-box">
                         <img  class ="content-box-icon" src="./Assets/Trillos.png" alt="small-icon">
-                        <p class="content-box-text">Trillos</p>
+                        <p class="content-box-text Project-trillos">Trillos</p>
                         <div class="Project-icon-holder">
                             <svg class="Project-icon" style="fill: var(--base-dark);">
                                 <use xlink:href = "./css/sprite.svg#icon-globe"></use>
                             </svg>
                         </div>
                     </div>
-                </div>
-                <div class="Project-content">
+                </a>
+                <a class="Project-content" href="https://keeper-notes.netlify.app/">
                     <div class="content-image-holder">
                         <img class="content-image" src="./Assets/keeper-screen.png" alt="natours-image">
                     </div>
@@ -173,28 +185,29 @@
                         <svg class="content-image-svg">
                             <use xlink:href = "./css/sprite.svg#icon-highlight"></use>
                         </svg>
-                        <p class="content-box-text">Keeper</p>
+                        <p class="content-box-text Project-keeperApp">Keeper</p>
                         <div class="Project-icon-holder">
                             <svg class="Project-icon" style="fill: #61dafb;">
                                 <use xlink:href = "./css/sprite.svg#icon-react"></use>
                             </svg>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
     </section>
 
-   <section class="CTA">
+   <section class="CTA" id="CTA">
         <div class="CTA-Container">
             <form action="mailto:conquerorraj2626@gmail.com" method="POST" class="CTA-form">
                 <h2 class="CTA-form--text">Got some work/Idea, then<br/>please mail me</h2>
                 <input class="CTA-form--mail" type="email" required autocomplete="off" placeholder="email">
                 <button class="CTA-form--btn" type="submit">Send!</button>
+                <h2 class="CTA-form--text">You can also Contact me on: <span class=" Main-content--name CTA-my-mail">conquerorraj2626@gmail.com</span> </h2>
             </form>
             <div class="CTA-line"></div>
             <div class="CTA-bottom">
-                <h3 class="CTA-bottom--text">Made with 🔥 by Mohanraj</h3>
+                <h3 class="CTA-bottom--text">Made with ❤ by Mohanraj</h3>
                 <div class="CTA-icon--set">
                     <a href="https://twitter.com/Mohanraj2k00">
                         <svg class="CTA-icon">
@@ -220,6 +233,7 @@
             </div>
         </div>
    </section>
-<script src="./index.js"></script>
+   <script src="./js/noframework.waypoints.min.js"></script>
+   <script src="./js/index.js"></script>
 </body>
 </html>

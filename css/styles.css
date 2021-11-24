@@ -21,49 +21,110 @@ body{
 a{
     text-decoration: none;
 }
+html{
+    scroll-behavior: smooth;
+}
+/* /////////////////////   PRELOADER /////////////////////// */
+  
+  .preload {
+    position: fixed;
+    z-index: 10000;
+    width: 100%;
+    height: 100vh;
+    background: #333333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 1s ease 3s;
+  }
 
+  .preload-finish {
+    opacity: 0;
+    pointer-events: none;
+  }
 /* //////////////// NAVIGATION  //////////////////// */
 
 
 
 .navigation{
     display: flex;
-     width: 100%;
-     position: fixed;        
+    width: 100%;
+    position: fixed;        
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     z-index: 1000;
     padding-top: 9px;
-    background: rgba(255, 255, 255, 0.85);
     border-bottom-left-radius: 3rem;
     border-bottom-right-radius: 3rem;
+    transition: all .3s ease;
+}
+.responsive-nav{
+    display: none;
+}
+.navigation-sticky{
+    background: rgba(255, 255, 255, 0.8);
     box-shadow: 0px -8px 24px #8d8d8d;
+    font-size: 14px;
+    backdrop-filter: blur(7px);
+    border-radius: 0;
+    padding-top: 0px;
+    transition: all .3s ease;
 }
 .nav-container{
     display: flex;
     width: 30%;
     flex-direction: row;
     justify-content: space-evenly;
+    align-self: stretch;
+    align-items: center;
 }
+.Sandwitch-Icon{
+    display: none;
+}
+
 .my-icon{
     padding-left: 1rem;
     padding-top: 10px;
+    transition: all .3s ease;
+}
+.navigation-sticky-icon{
+    padding-top: 5px;
+    width: 5rem;
+    transition: all .3s ease;
 }
 
 .nav-links{
     font-weight: 200;
     color: var(--base-dark);
     padding: 6px;
+    border-bottom: 2px solid transparent;
+    transition: all .5s ease;
+    height: 100%;
+    padding-top: 1.5rem;
+    transition: all .3s ease;
 }
+.nav-links-sticky{
+    padding-top: 1rem;
+    transition: all .3s ease;
+}
+
+.nav-links:hover{
+    border-bottom: 2px solid var(--base-dark);
+    transition: all .5s ease;
+    height: 100%;
+}
+
 .hire-button{
     padding: 6px;
     color: var(--base);
     background: var(--base-dark);
-    border-radius: 8px;
+    border-radius: 4px;
     font-weight: 500;
 }
-
+.hire-button:hover{
+    background-color: #EA5455;
+}
 
 
 /* //////////////// MAIN CONTENT //////////////////// */
@@ -84,6 +145,7 @@ a{
     font-size: 2.2rem;
     padding-left: 10rem;
     padding-bottom: 2rem;
+    background-image: url(../Assets/cubes.png);
 }
 
 .Main-content-text{
@@ -93,9 +155,8 @@ h1{
     font-weight: 300;
 }
 .text-anime{
-    /* animation-duration: 1s; */
-    /* animation-name: animate-title; */
-    animation: animate-title  1s ; /*  // add infinte to add endless animation */
+    animation: animate-title 1s;
+    animation-delay: 4s; /*  // add infinte to add endless animation */
 }
 
 .Main-content--name{
@@ -181,14 +242,17 @@ h1{
     position: relative;
 }
 #Main-content-BoxRoll{
-    position: absolute;
     width: 100px;
     height: 110px;
     animation-duration: 1s;
-    animation-name: box-anime;
-    top: 350px;
+    position: absolute;
+    top: calc(55vh);
     left: -17rem;
+    animation-name: box-anime;
+    transition: all 4s ease;
 }
+
+
 /* //testing */
 #Main-content-BoxRoll2{
     position: absolute;
@@ -196,9 +260,14 @@ h1{
     height: 150px;
     animation-duration: 1.5s;
     animation-name: box-anime2;
-    top: 400px;
+    top: calc(60vh);
     left: -8rem;
+    transition: all 4s ease;
+
+
 }
+
+
 @keyframes box-anime {
     from{
         top:-100px;
@@ -230,7 +299,7 @@ h1{
 /* ///////////////////         ABOUT            /////////////  */
 
 .About{
-    height:100vh;
+    height:90vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -345,8 +414,11 @@ h1{
     height: 95%;
     width: 90%;
     background-color: #ffffff;
-    border-radius: 20px;
+    border-radius: 10px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .Skills-heading{
     padding-top: 2rem;
@@ -388,6 +460,8 @@ h1{
     width: 3px;
     height: 10rem;
     background:rgb(200, 200, 200);
+    display: flex;
+    align-items: center;
 }
 
 .Skill-icon{
@@ -418,16 +492,16 @@ h1{
 
 
 .Project{
-    height: 100vh;
+    height:100vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 .Project-container{
-    height: 90vh;
+    height: 85vh;
     width: 90%;
     background-color: #ffffff;
-    border-radius: 20px;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -460,7 +534,6 @@ h1{
     box-shadow: 0 0px 27px #a7a7a7;
 }
 
-
 .content-image{
     width: 20rem;
     height: 200px;
@@ -482,6 +555,22 @@ h1{
 }
 .content-box-text{
     transform: translateX(-3.5rem);
+    letter-spacing: 2px;
+}
+.Project-natours{
+    color: #49d131;
+    text-decoration: none;
+    font-size:1.3rem;
+}
+.Project-trillos{
+    color: #FF3366;
+    text-decoration: none;
+    font-size:1.3rem;
+}
+.Project-keeperApp{
+    color: #f5ba13;
+    text-decoration: none;
+    font-size:1.3rem;
 }
 .Project-icon-holder{
     width: 2.5rem;
@@ -514,11 +603,11 @@ h1{
     align-items: center;
 }
 .CTA-Container{
-    height: 80vh;
-    width: 80%;
-    background-image: url(./Assets/cubes.png);
+    height: 90vh;
+    width: 90%;
+    background-image: url(../Assets/cubes.png);
     background-color: #ffffff;
-    border-radius: 20px;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
     justify-content:space-around;
@@ -527,18 +616,19 @@ h1{
 .CTA-form{
     display: flex;
     flex-direction: column;
-    height: 20rem;
+    height: 25rem;
     justify-content: space-evenly;
+    width: 45%;
 }
 .CTA-form--text{
-    font-size: 1.8rem;
+    font-size: 1.3rem;
     font-style: italic;
     font-weight: 300;
 }
 .CTA-form--mail{
     font-family: inherit;
     font-style: italic;
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     padding:1rem 2.5rem;
     border-radius: 5px;
     border: none;
@@ -600,20 +690,411 @@ h1{
     transition: all .2s ease;
 }
 .CTA-icon:hover{
-    fill: var(--base-dark);
+    fill: rgb(192, 61, 49);
     cursor: pointer;
-    background-color: rgb(221, 221, 221);
-    border-radius: 100%;
     width: 1.5rem;
     height: 1.5rem;
     transition: all .2s ease;
 }
+.CTA-my-mail{
+    font-weight: 500;
+}
+
+
+/* /////////////////// Media queries ////////////// */
+@media only screen and (min-width:1440px){
+    
+    .About{
+        height:80vh;
+    }
+    
+    .About-container{
+        height: 75%;
+    }
+    .About-container--text{
+        justify-content: space-between;
+    }
+
+    .Skills{
+        height: 80vh;
+    }
+
+    .Skills-container{
+        height: 100%;
+        justify-content: space-evenly;
+    }
+    
+    .Skills-heading{
+        padding: 0;
+    }
+
+    .Project{
+        height: 85vh;
+    }
+    .Project-container{
+        height: 65vh;
+    }
+
+    .CTA{
+        height: 65vh;
+        align-items: flex-start;
+    }
+
+    .CTA-Container{
+        height: 60vh;
+    }
+}
+
+@media only screen and (min-width:1660px) {
+
+    .About{
+        height:70vh;
+    }
+    .About-container{
+        justify-content: space-evenly;
+    }
+    .About-container--text{
+        width: 45%;
+    }
+    .About-text--para{
+        font-size: 2.5rem;
+        padding: 20px 0;
+    }
+
+    .Skills-main-container{
+        width: 80%;
+    }
+    .Skills-main-container-adjust{
+        transform: translateX(12rem);
+    }
+}
+
+@media only screen and (max-width:768px){
+
+    .my-icon{
+        width: 4rem;
+    }
+    .navigation-sticky{
+        box-shadow: none;
+    }
+
+    .Sandwitch-Icon{
+        display: block;
+        font-size: 2rem;
+        padding-right: 3rem;
+        color: var(--base-dark);
+    }
+
+    .nav-container{
+        display: none;
+    }
+
+    .responsive-nav{ 
+        position: fixed;
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        padding-top: 3rem;
+        padding-bottom: 0.8rem;
+        z-index: 100;
+    }     
+    .responsive-nav a{
+        display: contents;
+    }
+    .responsive-nav-hide{
+        display: flex;
+    }
+
+    .nav-links{
+        padding-top:1rem ;
+        font-size: 1rem;
+        border-bottom: 0;
+    }
+    .hire-button{
+        font-size: 1rem !important;
+        padding: 0.5rem 0.5rem;
+    }
+    .nav-links:hover{
+        border-bottom: 0;
+    }
+    .nav-links-project{
+        padding-top: 0;
+    }
+    
 
 
 
 
+    .Main-content__left{
+        padding-left: 5rem;
+        padding-bottom: 5rem;
+        font-size: 1.5rem;
+    }
+    .Main-content-BoxPng {
+        width: 250px;
+        height: 160px;
+    }
+    #Main-content-BoxRoll{
+        left: -7rem;
+    }
+    #Main-content-BoxRoll2{
+        left: -1rem;
+    }
 
+    .About-container--image{
+        width: 200px;
+        height: 275px;
+    }
+    .About-container--text{
+        justify-content: space-around;
+    }
+    .About-text--heading{
+        font-size: 2rem;
+    }
+    .About-text--para{
+        font-size: 1.5rem;
+    }
+    .Download-btn{
+        justify-content: space-around;
+        font-size: 1.3rem;
+        padding: 0.5rem 0.8rem;
+    }
+    .Skills{
+        height: auto;
+    }
+    .Skills-container{
+        height: auto;
+    }
+    .Skills-main-container:last-child{
+        padding-bottom: 2rem;
+    }
 
+    .Project{
+        height:auto;
+        margin-top: 2rem;
+    }
+
+    .Project-container{
+        height: auto;
+    }
+
+    .Project-title{
+        padding-top: 2rem;
+        padding-bottom: 1rem;
+        font-size: 1.5rem;
+    }
+
+    .Project-content{
+        margin: 2rem 0;
+        width: 15rem;
+        height: 15rem;
+    }
+
+    .content-image{
+        width: 13rem;
+        height: auto;
+    }
+    .content-box{
+        width: 13rem;
+    }
+    .content-box-icon{
+        width:2rem;
+    }
+    .content-box-text{
+        transform: translateX(0rem);
+    }
+}
+
+@media only screen and (max-width:425px){
+    .Main-content{
+        height: 100vh;
+    }
+    .Main-content__left{
+        width: 100%;
+        height: 100vh;
+        text-align: left;
+        align-items: center;
+        padding-left: 1rem;
+        font-size: 1.2rem;
+        padding-bottom: 0;
+        justify-content: center;
+    }
+    .Main-content-designer{
+        animation: none;
+        transform: none;
+    }
+    .hide{
+        opacity: 1;
+    }
+    .show{
+        opacity: 1;
+    }
+
+    .Main-content__right{
+        display: none;
+    }
+    #Main-content-BoxRoll2{
+        display: none;
+    }
+    #Main-content-BoxRoll{
+        display: none;
+    }
+
+/* /////////// ABOUT //////////// */
+
+    .About{
+        height: 60vh;
+    }
+    .About-container{
+        height: 55vh;
+    }
+    .About-container--image{
+        display: none;
+    }
+    .About-container--text{
+        width: 75%;
+        text-align: center;
+        justify-content: space-around;
+    }
+    .About-text--heading{
+        font-size: 1.5rem;
+    }
+    .About-text--para{
+        font-size: 1.2rem;
+    }
+    .Download-btn{
+        font-size: 1.2rem;
+        justify-content: space-evenly;
+        padding: 0.5rem 0.5rem;
+    }
+/* /////////// SKILLS //////////// */
+    .Skills{
+        height: auto;
+    }    
+    /* .Skills-container{
+
+    } */
+    .skills-title{
+        font-size: 1.5rem;
+    }
+    .Skill-description{
+        width:8rem;
+        font-size: 0.8rem;
+    }
+    .Skill-description h3{
+        padding-bottom: 5px;
+    }
+    .Skill--Set{
+        width: 18rem;
+    }
+    .Skills-main-container:last-child{
+        padding-bottom: 2rem;
+    }
+    .Skill-icon{
+        width: 60px;
+        height: 60px;
+    }
+    .Icon-skill{
+        font-size: 1.5rem;
+        width: 24px;
+        height: 27px;
+    }
+    .Skill-number{
+        transform: translateX(-1.9rem);
+    }
+
+/* /////////// Project //////////// */    
+
+    .Project{
+        height:auto;
+        margin-top: 2rem;
+    }
+
+    .Project-container{
+        height: auto;
+    }
+
+    .Project-title{
+        padding-top: 2rem;
+        padding-bottom: 1rem;
+        font-size: 1.5rem;
+    }
+
+    .Project-content{
+        margin: 2rem 0;
+        width: 15rem;
+        height: 15rem;
+    }
+
+    .content-image{
+        width: 13rem;
+        height: auto;
+    }
+    .content-box{
+        width: 13rem;
+    }
+    .content-box-icon{
+        width:2rem;
+    }
+    .content-box-text{
+        transform: translateX(0rem);
+    }
+
+    .CTA{
+        height: 70vh;
+    }
+    .CTA-Container{
+        height: 60vh;
+    }
+    .CTA-Container:last-child{
+        padding-bottom: 1rem;
+    }
+    .CTA-form--text{
+        font-size: 1rem;
+    }
+    .CTA-form--mail{
+        font-size: 1rem;
+    }
+    .CTA-form--btn{
+        font-size: 1rem;
+        width: 10rem;
+    }
+    .CTA-form{
+        width: 80%;
+    }
+    .CTA-bottom--text{
+        font-size: 0.8rem;
+    }
+    .CTA-icon--set{
+        width: 10rem;
+    }
+    .CTA-icon{
+        width: 1.3rem !important;
+        height: 1.3rem;
+    }
+    .CTA-line{
+        margin-bottom: 1rem;
+    }
+
+}
+
+@media only screen and (max-width:320px) {
+    .Skill--Set{
+        width: 15rem;
+        height: 7rem;
+        transform: translateX(10px);
+    }
+    .Skill-number{
+        transform: translateX(-1.2rem);
+    }
+    .Skill-line{
+        height: 7rem;
+    }
+    .CTA-my-mail{
+        font-size: 0.9rem;
+    }
+}
 
 
 
